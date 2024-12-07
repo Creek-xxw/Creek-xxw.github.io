@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+  <head>
+    <meta charset="utf-8">
+    <title>Xiaowei</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Silicon - Multipurpose Technology Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>.page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      
+      footer {
+            background-color: #111;
+            padding: 40px 20px;
+            text-align: center;
+            color: #aaa;
+        }
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .footer-nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-nav a:hover {
+            color: #fff;
+        }
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .download-buttons img {
+            width: 100px;
+            cursor: pointer;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-icons .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #222;
+            color: #aaa;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        .social-icons .icon:hover {
+            background-color: #ff6700;
+            color: #fff;
+        }
+        .footer-credits {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .bottom-floating-image{
+            max-width: 100%;
+            max-height: 100%;
+            width: 20%;
+        }
+        
+        .position-relative {
+            position: relative; /* 为父容器添加相对定位 */
+        }
+
+        .floating-image-container {
+            display: flex;
+            position: absolute;
+            top: 81%; /* 垂直居中 */
+            right: 150px; /* 调整这个值来控制图片距按钮的水平距离 */
+            transform: translateY(-50%); /* 垂直方向居中对齐 */
+            width: 100px; /* 根据需要调整宽度 */
+            height: auto;
+        }
+
+        .floating-image {
+            width: 100%; /* 图片适应容器 */
+            height: auto;
+            border-radius: 10px; /* 添加圆角效果（可选） */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 添加阴影效果（可选） */
+        }
+        .floating-image-container-xs{
+          display: none;
+            position: absolute;
+            top: 99.5%; /* 垂直居中 */
+            right: 90px; /* 调整这个值来控制图片距按钮的水平距离 */
+            transform: translateY(-50%); /* 垂直方向居中对齐 */
+            width: 100px; /* 根据需要调整宽度 */
+            height: auto;
+        }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'light') {
+        root.classList.add('light-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+    
+    <!-- Page custom styles -->
+    <style>/* Spin animation */
+      @-webkit-keyframes hero-spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes hero-spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .hero-animation-spin {
+        -webkit-animation: hero-spin 35s linear infinite;
+        animation: hero-spin 35s linear infinite;
+      }
+
+      /* Fade animation */
+      @-webkit-keyframes hero-fade {
+        0%, 100% { opacity: 0 }
+        50% { opacity: 1 }
+      }
+      @keyframes hero-fade {
+        0%, 100% { opacity: 0 }
+        50% { opacity: 1 }
+      }
+      .hero-animation-fade {
+        -webkit-animation: hero-fade 4s ease-in infinite;
+        animation: hero-fade 4s ease-in infinite;
+      }
+      .hero-animation-delay-1,
+      .hero-animation-delay-2,
+      .hero-animation-delay-3 {
+        opacity: 0;
+      }
+      .hero-animation-delay-1 { animation-delay: .75s; }
+      .hero-animation-delay-2 { animation-delay: 1.5s; }
+      .hero-animation-delay-3 { animation-delay: 2s; }
+
+      @media screen and (max-width: 1023px) {
+        .floating-image-container {
+          display: none;
+        }
+        .floating-image-container-xs {
+          display: none;
+        }
+      }
+    </style>
+
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 10);
+        };
+      })();
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WKV3GT5');
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+    
+    <!-- Google Tag Manager (noscript)-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKV3GT5" height="0" width="0" style="display: none; visibility: hidden;"></iframe>
+    </noscript>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg bg-light border-bottom border-light shadow-sm fixed-top">
+        <div class="container px-3">
+          <img src="assets/img/logo.png" width="30" alt="Silicon">
+          <div class="ms-3" id="navbarToggle" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span>Creek</span>
+          </div>
+          <div id="navbarNav" class="offcanvas offcanvas-end bg-dark">
+          </div>
+          <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div>
+      </div>
+      </header>
+
+
+      <!-- Hero + animations -->
+      <section class="position-relative d-flex align-items-center min-vh-100 py-5 bg-light overflow-hidden" style="margin-top: 20px;">
+        <span class="position-absolute top-0 start-0 d-dark-mode-block d-none w-100 h-100 bg-secondary opacity-75"></span>
+        <div class="container position-relative mt-5 mb-lg-5 mb-md-4 mb-3 pt-3 pb-xl-3">
+          <div class="row gy-5">
+            <div class="col-xl-5 col-lg-6">
+              <div class="position-relative zindex-5 text-lg-start text-center">
+                <h1 class="display-2 mb-4 pb-lg-3 pb-md-2"> <span class="text-primary">Hi, I'm Xiaowei</span> </h1>
+                <p class="mb-4 pb-lg-3 pb-md-2">
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6 offset-xl-1">
+              <div class="position-relative ms-xl-0 ms-lg-4">
+                <div class="position-absolute top-50 start-50 translate-middle ratio ratio-1x1" style="width: 125%; max-width: 49.75rem;">
+                  <div class="p-md-0 p-5">
+                    <img src="assets/img/landing/software-agency-3/hero-bg.png" alt="Shape" class="hero-animation-spin p-md-0 p-5">
+                  </div>
+                </div>
+                <div class="position-relative row row-cols-sm-2 row-cols-1 gx-xl-4 gx-lg-3 gx-md-4 gx-3">
+                  <div class="col">
+                    <div class="d-sm-grid d-flex gap-xl-4 gap-lg-3 gap-md-4 gap-sm-3 gap-2">
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade" style="color:rgba(19, 187, 190, 0.673);">Developer</span>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade hero-animation-delay-2" style="color:rgba(19, 187, 190, 0.673);">Pythonist</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col mt-sm-5 mt-2 pt-sm-5">
+                    <div class="d-sm-grid d-flex gap-xl-4 gap-lg-3 gap-md-4 gap-sm-3 gap-2">
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade hero-animation-delay-1" style="color:rgba(19, 187, 190, 0.673);">CTR Prediction</span>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade hero-animation-delay-3" style="color:rgba(19, 187, 190, 0.673);">LLM Reasoning</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- About -->
+      <section class="container my-5 py-lg-5 py-md-4 py-3">
+        <div class="row gy-4 py-xl-3 position-relative">
+          <div class="col-md-6">
+            <img src="assets/img/paper-model.png" alt="Image" class="rounded-3">
+          </div>
+          <div class="col-lg-5 col-md-6 offset-lg-1 d-flex">
+            <div class="align-self-center ps-lg-0 ps-md-4">
+              <h2 class="h1 mb-lg-4 mb-3">My Reseach</h2>
+              <p class="mb-4 pb-lg-3 fs-lg">An accuracy improving method for advertising click through rate prediction based on enhanced xDeepFM model</p>
+              <p class="mb-4 pb-lg-3 fs-lg"><strong>Xiaowei Xi</strong>, Song Leng, Yuqing Gong, Dalin Li</p>
+              <a href="https://arxiv.org/abs/2411.15223" target="_blank" class="btn btn-lg btn-outline-primary">arxiv</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container my-5 py-lg-5 py-md-4 py-3">
+        <div class="row gy-4 py-xl-3 position-relative">
+          <div class="col-md-6">
+            <img src="assets/img/fiber.jpg" alt="Image" class="rounded-3">
+          </div>
+          <div class="col-lg-5 col-md-6 offset-lg-1 d-flex">
+            <div class="align-self-center ps-lg-0 ps-md-4">
+              <h2 class="h1 mb-lg-4 mb-3">Software Copyright Registration</h2>
+              <p class="mb-4 pb-lg-3 fs-lg">Machine vision based software for detecting the order of slender optical fibers.</p>
+              <p class="mb-4 pb-lg-3 fs-lg">Dalin Li, Jiadong Lu, <strong>Xiaowei Xi</strong>, Meixuan Jiang</p>
+              <a href="#" class="btn btn-lg btn-outline-primary">2023SR0210047</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container my-5 py-lg-5 py-md-4 py-3">
+        <div class="row gy-4 py-xl-3 position-relative">
+          <div class="col-md-6">
+            <img src="assets/img/fiber.jpg" alt="Image" class="rounded-3">
+          </div>
+          <div class="col-lg-5 col-md-6 offset-lg-1 d-flex">
+            <div class="align-self-center ps-lg-0 ps-md-4">
+              <h2 class="h1 mb-lg-4 mb-3">Software Copyright Registration</h2>
+              <p class="mb-4 pb-lg-3 fs-lg">Customer Relationship Management System</p>
+              <p class="mb-4 pb-lg-3 fs-lg">Tongfei Lu, Wei Lv, Yuchao Jiang, Jiadong Lu, <strong>Xiaowei Xi</strong></p>
+              <a href="#" class="btn btn-lg btn-outline-primary">2024SR0106623</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <footer>
+        I'm developing, Please loading...
+      </footer>
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
